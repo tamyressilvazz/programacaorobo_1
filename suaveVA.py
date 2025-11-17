@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def projectile_motion(initial_velocity, launch_angle_degrees, time_points):
-    """Calculates x and y positions for projectile motion."""
+"""def projectile_motion(initial_velocity, launch_angle_degrees, time_points):
+
     g = 9.81  # m/s^2
     launch_angle_radians = np.deg2rad(launch_angle_degrees)
 
@@ -31,4 +31,31 @@ plt.grid(True)
 plt.axhline(0, color='black', linewidth=0.5)
 plt.axvline(0, color='black', linewidth=0.5)
 plt.legend()
-plt.show()
+plt.show()"""
+
+
+
+# resolucao professor
+def trapezoid(qi, qf):
+    v_max = 20 # m/s ^2
+    a_max = 10 # m/s^2
+
+
+    # tempo par chegar na velocidade máxima
+    delta_t_acc = v_max/a_max
+
+    #distancia percorrida durante a aceleracao
+    delta_dist_acc = 0.5*a_max*delta_t_acc**2
+
+    #distancia percorrida constante
+    delta_dist_const = abs(qf- qi) - 2*delta_dist_acc
+
+    #tempo constante
+    delta_t_const = delta_dist_const/v_max
+
+    # falta 50 graus para percorrer, e o tempo vai ser de 2.5
+    print(delta_t_acc, delta_dist_acc, delta_dist_const, delta_t_const)
+
+
+trapezoid(0, 90)
+
